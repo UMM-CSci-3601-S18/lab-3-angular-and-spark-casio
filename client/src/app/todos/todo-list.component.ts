@@ -29,7 +29,7 @@ export class TodoListComponent implements OnInit {
 
   }
 
-  public filterTodos(searchOwner: string, searchStatus: number): Todo[] {
+  public filterTodos(searchOwner: string): Todo[] {
 
     this.filteredTodos = this.todos;
 
@@ -67,7 +67,7 @@ export class TodoListComponent implements OnInit {
     todos.subscribe(
       returnedTodos => {
         this.todos = returnedTodos;
-        this.filterTodos(this.todoOwner, this.todoStatus);
+        this.filterTodos(this.todoOwner);
       },
       err => {
         console.log(err);
