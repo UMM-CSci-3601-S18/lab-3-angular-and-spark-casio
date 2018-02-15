@@ -21,14 +21,14 @@
         <!--</mat-form-field>-->
 
         <mat-accordion *ngIf="todos; else todosError">
-          <mat-expansion-panel #elem [id]="todo.owner" *ngFor="let todo of this.filterTodos(todoOwner)">
+          <mat-expansion-panel #elem [id]="todo.owner" *ngFor="let todo of this.filterTodos(todoOwner, todoCategory, todoBody)">
             <mat-expansion-panel-header>
 
               <mat-panel-title matTooltip="Category: {{todo.category}}">{{todo.owner}}</mat-panel-title>
 
             </mat-expansion-panel-header>
             <mat-panel-description>{{todo.owner}} is the owner of this todo.</mat-panel-description>
-           <!-- <mat-panel-description>The todo category is {{todo.category}}.</mat-panel-description> -->
+            <mat-panel-description>The todo category is {{todo.category}}.</mat-panel-description>
             <mat-panel-description>The body is {{todo.body}}</mat-panel-description>
 
 
