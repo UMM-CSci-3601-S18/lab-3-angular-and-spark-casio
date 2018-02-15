@@ -90,10 +90,10 @@ public class Server {
         });
 
         // Called after each request to insert the GZIP header into the response.
-        // This causes the response to be compressed _if_ the client specified
+        // This causes the restodos"ponse to be compressed _if_ the client specified
         // in their request that they can accept compressed responses.
         // There's a similar "before" method that can be used to modify requests
-        // before they they're processed by things like `get`.
+        // before they they'retodos" processed by things like `get`.
         after("*", addGzipHeader);
 
         // Handle "404" file not found requests:
