@@ -17,8 +17,6 @@ file .You can route to either of these with runClient running regardless of whet
 the server is up. No, the SparkJava server isn't the only thing doing routing. The 
 app.routes.ts file is routing to different pages inside of the client.
 
-
-
 4. user-list.services.ts contains all the logic. This is globally available to everyone. You could have
 the component file act as a service to get user data, but doing this every time you want the data would
 be slow and inconvenient. It is more convenient to just have one service file get the data, then you can
