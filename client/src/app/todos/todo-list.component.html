@@ -8,6 +8,14 @@
           <input matInput id="todoOwner" #input placeholder="Filter by owner" (input)="todoOwner = $event.target.value">
         </mat-form-field>
 
+        <mat-form-field>
+          <input matInput id="todoCategory" #input placeholder="Filter by category" (input)="todoCategory = $event.target.value">
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput id="todoBody" #input placeholder="Filter by body" (input)="todoBody = $event.target.value">
+        </mat-form-field>
+
         <!--<mat-form-field>-->
         <!--<input matInput id="todoCompany" #input type="text" placeholder="Search for company" (input)="contentChange($event.target.value)">-->
         <!--</mat-form-field>-->
@@ -16,10 +24,12 @@
           <mat-expansion-panel #elem [id]="todo.owner" *ngFor="let todo of this.filterTodos(todoOwner)">
             <mat-expansion-panel-header>
 
-              <mat-panel-title matTooltip="email: {{todo.owner}}"></mat-panel-title>
+              <mat-panel-title matTooltip="Category: {{todo.category}}">{{todo.owner}}</mat-panel-title>
 
             </mat-expansion-panel-header>
             <mat-panel-description>{{todo.owner}} is the owner of this todo.</mat-panel-description>
+           <!-- <mat-panel-description>The todo category is {{todo.category}}.</mat-panel-description> -->
+            <mat-panel-description>The body is {{todo.body}}</mat-panel-description>
 
 
           </mat-expansion-panel>
