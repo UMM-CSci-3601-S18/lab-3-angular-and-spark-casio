@@ -80,38 +80,59 @@ describe('User list', () => {
     expect(todoList.todos.some((todo: Todo) => todo.owner === 'Fry')).toBe(true);
   });
 
-  it('does not contain an owner named \'Rudolph\'', () => {
+  it('doesn\'t contain an owner named \'Rudolph\'', () => {
     expect(todoList.todos.some((todo: Todo) => todo.owner === 'Rudolph')).toBe(false);
   });
 
-  /*
-  it('has two users that are 37 years old', () => {
-    expect(TodoList.users.filter((user: User) => user.age === 37).length).toBe(2);
-  });
-  it('user list filters by name', () => {
-    expect(userList.filteredUsers.length).toBe(3);
-    userList.userName = 'a';
-    const a: Observable<User[]> = userList.refreshUsers();
-    a.do(x => Observable.of(x))
-      .subscribe(x => expect(userList.filteredUsers.length).toBe(2));
+  it('contains a todo with the status true', () => {
+    expect(todoList.todos.some((todo: Todo) => todo.status === true)).toBe(true);
   });
 
-  it('user list filters by age', () => {
-    expect(userList.filteredUsers.length).toBe(3);
-    userList.userAge = 37;
-    const a: Observable<User[]> = userList.refreshUsers();
-    a.do(x => Observable.of(x))
-      .subscribe(x => expect(userList.filteredUsers.length).toBe(2));
+  it('contains a category named \'software design\'', () => {
+    expect(todoList.todos.some((todo: Todo) => todo.category === 'software design')).toBe(true);
   });
 
-  it('user list filters by name and age', () => {
-    expect(userList.filteredUsers.length).toBe(3);
-    userList.userAge = 37;
-    userList.userName = 'i';
-    const a: Observable<User[]> = userList.refreshUsers();
-    a.do(x => Observable.of(x))
-      .subscribe(x => expect(userList.filteredUsers.length).toBe(1));
+  it('contains a category named \'video games\'', () => {
+    expect(todoList.todos.some((todo: Todo) => todo.category === 'video games')).toBe(true);
   });
-  */
+
+  it('contains a category named \'homework\'', () => {
+    expect(todoList.todos.some((todo: Todo) => todo.category === 'homework')).toBe(true);
+  });
+
+  it('has two todos whose statuses are false', () => {
+    expect(todoList.todos.filter((todo: Todo) => todo.status === false).length).toBe(2);
+  });
+
+  it('contains only one category named \'homework\'', () => {
+    expect(todoList.todos.filter((todo: Todo) => todo.category === 'homework').length).toBe(1);
+  });
+
+  it('todo list filters by owner', () => {
+    expect(todoList.filteredTodos.length).toBe(3);
+    todoList.todoOwner = 'y';
+    const a: Observable<Todo[]> = todoList.refreshTodos();
+    a.do(x => Observable.of(x))
+      .subscribe(x => expect(todoList.filteredTodos.length).toBe(2));
+  });
+
+  it('todo list filters by category', () => {
+    expect(todoList.filteredTodos.length).toBe(3);
+    todoList.todoCategory = 'o';
+    const a: Observable<Todo[]> = todoList.refreshTodos();
+    a.do(x => Observable.of(x))
+      .subscribe(x => expect(todoList.filteredTodos.length).toBe(3));
+  });
+/*
+  // This doesn't work because it expects a string instead of a boolean
+  it('todo list filters by status', () => {
+    expect(todoList.filteredTodos.length).toBe(3);
+    todoList.todoStatus = true;
+    const a: Observable<Todo[]> = todoList.refreshTodos();
+    a.do(x => Observable.of(x))
+      .subscribe(x => expect(todoList.filteredTodos.length).toBe(1));
+  });*/
+
+
 
 });
