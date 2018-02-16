@@ -123,7 +123,7 @@ describe('Todo list', () => {
     a.do(x => Observable.of(x))
       .subscribe(x => expect(todoList.filteredTodos.length).toBe(3));
   });
-  
+
   it('todo list filters by status', () => {
     expect(todoList.filteredTodos.length).toBe(3);
     todoList.todoStatus = "complete";
@@ -132,23 +132,27 @@ describe('Todo list', () => {
       .subscribe(x => expect(todoList.filteredTodos.length).toBe(1));
   });
 
+  it('todo list filters by category and status', () => {
+    expect(todoList.filteredTodos.length).toBe(3);
+    todoList.todoStatus = "incomplete";
+    todoList.todoCategory = 'g';
+    const a: Observable<Todo[]> = todoList.refreshTodos();
+    a.do(x => Observable.of(x))
+      .subscribe(x => expect(todoList.filteredTodos.length).toBe(2));
+  });
+
+  it('todo list filters by owner and body', () => {
+    expect(todoList.filteredTodos.length).toBe(3);
+    todoList.todoOwner = 'y';
+    todoList.todoBody = 's';
+    const a: Observable<Todo[]> = todoList.refreshTodos();
+    a.do(x => Observable.of(x))
+      .subscribe(x => expect(todoList.filteredTodos.length).toBe(2));
+  });
+
+  return this.filteredTodos;
 });
 
-/*
-  // we need to fix/update this later
-  it('user list filters by name and age', () => {
-    expect(userList.filteredUsers.length).toBe(3);
-    userList.userAge = 37;
-    userList.userName = 'i';
-    const a: Observable<User[]> = userList.refreshUsers();
-    a.do(x => Observable.of(x))
-      .subscribe(x => expect(userList.filteredUsers.length).toBe(1));
-  }); */
-
-/*
-  // we do not know what none of this below is or what it is doing.
-  // it drops our testing coverage from 80% to 70%. need to figure this
-  // out.
 describe('Misbehaving Todo List', () => {
     let todoList: TodoListComponent;
     let fixture: ComponentFixture<TodoListComponent>;
@@ -186,6 +190,3 @@ describe('Misbehaving Todo List', () => {
       expect(todoList.todos).toBeUndefined();
     });
   });
-
-});
-*/
