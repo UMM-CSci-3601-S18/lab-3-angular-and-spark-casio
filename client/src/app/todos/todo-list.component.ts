@@ -63,28 +63,28 @@ export class TodoListComponent implements OnInit {
       });
     }
 
-    // filter by status
+    // Filter by status
     if (searchStatus != null) {
+
       let theStatus: boolean;
 
       if (searchStatus === "complete") {
         theStatus = true;
+
       } else if (searchStatus === "incomplete") {
         theStatus = false;
-      } else if (searchStatus !== "complete" || "incomplete") {
-        return null;
+
+      } else {
+        return this.filteredTodos;
       }
+
       this.filteredTodos = this.filteredTodos.filter(todo => {
         return !searchStatus || todo.status === Boolean(theStatus);
       });
     }
-
-
+    
     return this.filteredTodos;
   }
-
-
-
 
   /**todoStatus
    * Starts an asynchronous operation to update the todos list
