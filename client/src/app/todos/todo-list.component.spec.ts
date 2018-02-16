@@ -12,7 +12,7 @@ import {Todo} from './todo';
 import {TodoListComponent} from './todo-list.component';
 import {TodoListService} from './todo-list.service';
 
-describe('User list', () => {
+describe('Todo list', () => {
 
   let todoList: TodoListComponent;
   let fixture: ComponentFixture<TodoListComponent>;
@@ -123,16 +123,69 @@ describe('User list', () => {
     a.do(x => Observable.of(x))
       .subscribe(x => expect(todoList.filteredTodos.length).toBe(3));
   });
-/*
-  // This doesn't work because it expects a string instead of a boolean
+  
   it('todo list filters by status', () => {
     expect(todoList.filteredTodos.length).toBe(3);
-    todoList.todoStatus = true;
+    todoList.todoStatus = "complete";
     const a: Observable<Todo[]> = todoList.refreshTodos();
     a.do(x => Observable.of(x))
       .subscribe(x => expect(todoList.filteredTodos.length).toBe(1));
-  });*/
-
-
+  });
 
 });
+
+/*
+  // we need to fix/update this later
+  it('user list filters by name and age', () => {
+    expect(userList.filteredUsers.length).toBe(3);
+    userList.userAge = 37;
+    userList.userName = 'i';
+    const a: Observable<User[]> = userList.refreshUsers();
+    a.do(x => Observable.of(x))
+      .subscribe(x => expect(userList.filteredUsers.length).toBe(1));
+  }); */
+
+/*
+  // we do not know what none of this below is or what it is doing.
+  // it drops our testing coverage from 80% to 70%. need to figure this
+  // out.
+describe('Misbehaving Todo List', () => {
+    let todoList: TodoListComponent;
+    let fixture: ComponentFixture<TodoListComponent>;
+
+    let todoListServiceStub: {
+      getTodos: () => Observable<Todo[]>
+    };
+
+    beforeEach(() => {
+      // stub UserService for test purposes
+      todoListServiceStub = {
+        getTodos: () => Observable.create(observer => {
+          observer.error('Error-prone observable');
+        })
+      };
+
+      TestBed.configureTestingModule({
+        imports: [FormsModule, CustomModule],
+        declarations: [TodoListComponent],
+        providers: [{provide: TodoListService, useValue: todoListServiceStub},
+          {provide: MATERIAL_COMPATIBILITY_MODE, useValue: true}]
+      });
+    });
+
+    beforeEach(async(() => {
+      TestBed.compileComponents().then(() => {
+        fixture = TestBed.createComponent(TodoListComponent);
+        todoList = fixture.componentInstance;
+        fixture.detectChanges();
+      });
+    }));
+
+    it('generates an error if we don\'t set up a TodoListService', () => {
+      // Since the observer throws an error, we don't expect todos to be defined.
+      expect(todoList.todos).toBeUndefined();
+    });
+  });
+
+});
+*/
