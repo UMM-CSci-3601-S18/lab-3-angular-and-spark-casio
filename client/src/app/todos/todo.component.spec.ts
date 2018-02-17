@@ -19,25 +19,25 @@ describe('Todo component', () => {
     todoListServiceStub = {
       getTodoById: (todoId: string) => Observable.of([
         {
-          id: 'chris_id',
-          owner: 'Chris',
-          status: true,
-          category: 'UMM',
-          body: 'chris@this.that'
+          id: "588959856281bee16d844dc8",
+          owner: "Barry",
+          status: false,
+          body: "In nostrud tempor velit nisi eiusmod aute cillum id amet. Ullamco sit velit ea officia.",
+          category: "groceries"
         },
         {
-          id: 'pat_id',
-          owner: 'Pat',
+          id: "58895985858afcb1a0105483",
+          owner: "Workman",
           status: true,
-          category: 'IBM',
-          body: 'pat@something.com'
+          body: "Est sit laboris aliqua deserunt Lorem labore nulla consequat ullamco in ullamco. Est reprehenderit enim aute esse velit.",
+          category: "video games"
         },
         {
-          id: 'jamie_id',
-          owner: 'Jamie',
+          id: "588959855bc0e6c7c26b5619",
+          owner: "Fry",
           status: true,
-          category: 'Frogs, Inc.',
-          body: 'jamie@frogs.com'
+          body: "Excepteur velit adipisicing minim ad labore et consectetur officia sunt. Officia Lorem consectetur ad duis.",
+          category: "homework"
         }
       ].find(todo => todo.id === todoId))
     };
@@ -55,15 +55,15 @@ describe('Todo component', () => {
     });
   }));
 
-  it('can retrieve Pat by ID', () => {
-    todoComponent.setId('pat_id');
+  it('can retrieve Barry by ID', () => {
+    todoComponent.setId('588959856281bee16d844dc8');
     expect(todoComponent.todo).toBeDefined();
-    expect(todoComponent.todo.owner).toBe('Pat');
-    expect(todoComponent.todo.body).toBe('pat@something.com');
+    expect(todoComponent.todo.owner).toBe('Barry');
+    expect(todoComponent.todo.category).toBe('groceries');
   });
 
-  it('returns undefined for Santa', () => {
-    todoComponent.setId('Santa');
+  it('returns undefined for Rudolph', () => {
+    todoComponent.setId('Rudolph');
     expect(todoComponent.todo).not.toBeDefined();
   });
 
