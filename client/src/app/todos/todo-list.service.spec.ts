@@ -9,26 +9,26 @@ describe('Todo list service: ', () => {
   // A small collection of test todos
   const testTodos: Todo[] = [
     {
-      id: 'chris_id',
-      owner: 'Chris',
+      id: "588959855aac378a2f7119ff",
+      owner: "Roberta",
       status: true,
-      category: 'UMM',
-      body: 'chris@this.that'
+      body: "Incididunt elit cillum laborum sunt sit veniam ullamco sit laboris veniam nulla. Labore labore occaecat dolore et fugiat in do nisi eu incididunt dolor officia adipisicing.",
+      category: "software design"
     },
     {
-      id: 'pat_id',
-      owner: 'Pat',
-      status: true,
-      category: 'IBM',
-      body: 'pat@something.com'
+      id: "58895985e131bd26d0576031",
+      owner: "Fry",
+      status: false,
+      body: "Ea id cupidatat magna sint aliquip ut voluptate. Esse occaecat amet id aliquip commodo.",
+      category: "video games"
     },
     {
-      id: 'jamie_id',
-      owner: 'Jamie',
+      id: "588959851dcf63c371007691",
+      owner: "Dawn",
       status: true,
-      category: 'Frogs, Inc.',
-      body: 'jamie@frogs.com'
-    }
+      body: "Do cillum ipsum esse duis. Labore do ea nisi nisi ut occaecat sint consequat.",
+      category: "video games"
+    },
   ];
   let todoListService: TodoListService;
   // These are used to mock the HTTP requests so that we (a) don't have to
