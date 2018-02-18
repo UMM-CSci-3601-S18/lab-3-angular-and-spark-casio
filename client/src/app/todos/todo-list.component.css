@@ -14,5 +14,36 @@
 
 #todo-list-title {
   font-size: 200px;
+  text-align: center;
+  font-family: Heuristica;
+  /*background-image: url(../../app/images/todos.png);
+  background-repeat: no-repeat;*/
+  text-align: center;
 }
 
+mat-expansion-panel {
+  background-color: #ffb411;
+  border-radius: 3px;
+}
+
+mat-form-field{
+  color: black;
+}
+
+.mat-card-content > :last-child:not(.mat-card-footer), .mat-card > :last-child:not(.mat-card-footer) {
+  text-align: center;
+  background-color: #fff1b0;
+}
+
+#todo-list-title[_ngcontent-c10] {
+  background-color: maroon;
+  border-radius: 3px;
+}
+
+#todo-list-title[_ngcontent-c10][_ngcontent-c10] {
+  color: #ffb411;
+}
+
+.mat-card:not([class*="mat-elevation-z"]) {
+  background-color: #ffb411;
+}
