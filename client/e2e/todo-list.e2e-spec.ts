@@ -29,31 +29,42 @@ describe('Todo list', () => {
     expect(page.getTodoTitle()).toEqual('Todos');
   });
 
-  it('should type something in filter name box and check that it returned correct element', () => {
+  it('should type something in filter owner text field and check that it returned correct element', () => {
     page.navigateTo();
     page.typeAnOwner("d");
-    // There is something wrong with these tests, probably because there are
-    // more than one instances of category.
-
-    /*expect(page.getUniqueTodo("homework")).toEqual("Dawn");
+    expect(page.getUniqueTodo("homework")).toEqual("Dawn");
     page.backspace();
     page.typeAnOwner("f")
-    expect(page.getUniqueTodo("video games")).toEqual("Fry");*/
+    expect(page.getUniqueTodo("video games")).toEqual("Fry");
   });
 
-
-/*
-  it('should click on the age 27 times and return 3 elements', () => {
+  it('should type something in filter category text field and check that it returned correct element', () => {
     page.navigateTo();
-    page.getUserByAge();
-    for (let i = 0; i < 27; i++) {
-      page.selectUpKey();
-    }
+    page.typeACategory("gro");
+    expect(page.getUniqueTodo("groceries")).toEqual("Blanche");
+    page.repeatBackspace(3);
+    page.typeAnOwner("f")
+    page.typeACategory("vide");
+    expect(page.getUniqueTodo("video games")).toEqual("Fry");
+  });
 
-    expect(page.getUniqueUser("stokesclayton@momentia.com")).toEqual("Stokes Clayton");
+  it('should type something in filter body text field and check that it returned correct element', () => {
+    page.navigateTo();
+    page.typeABody("est");
+    expect(page.getUniqueTodo("video games")).toEqual("Fry");
+    page.repeatBackspace(3);
+    page.typeABody("pari");
+    expect(page.getUniqueTodo("video games")).toEqual("Barry");
+  });
 
-    expect(page.getUniqueUser("merrillparker@escenta.com")).toEqual("Merrill Parker");
+  it('should type something in filter status text field and check that it returned correct element', () => {
+    page.navigateTo();
+    page.typeAStatus("complete");
+    expect(page.getUniqueTodo("homework")).toEqual("Fry");
+    page.repeatBackspace(8);
+    page.typeAStatus("incomplete");
+    expect(page.getUniqueTodo("software design")).toEqual("Blanche");
+  });
 
-  });*/
 
 });
