@@ -9,3 +9,7 @@ td-layout-nav {
 [_nghost-c2] {
   background-color: maroon;
 }
+
+mat-nav-list {
+  background-color: pink;
+}

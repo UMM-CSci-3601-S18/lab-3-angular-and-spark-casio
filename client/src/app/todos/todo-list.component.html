@@ -3,9 +3,17 @@
     <mat-card>
       <mat-card-title id="todo-list-title">Todos</mat-card-title>
 
-     <!-- <img src="../images/cougar-web_1.jpg"> -->
+      <mat-divider></mat-divider>
+
+      <mat-card-content id="info-card">
+        Welcome to the list of many todos, all of which have great meaning.
+        To filter by owner, category, or body, simply enter some letters.
+        But, to filter by status, please enter the entire word "complete" or "incomplete".
+        Have fun!
+      </mat-card-content>
 
       <mat-divider></mat-divider>
+
       <mat-card-content>
         <mat-form-field>
           <input matInput id="todoOwner" #input placeholder="Filter by owner" (input)="todoOwner = $event.target.value">
@@ -23,10 +31,6 @@
           <input matInput id="todoStatus" #input placeholder="Filter by status" (input)="todoStatus = $event.target.value">
         </mat-form-field>
 
-        <!--<mat-form-field>-->
-        <!--<input matInput id="todoCompany" #input type="text" placeholder="Search for company" (input)="contentChange($event.target.value)">-->
-        <!--</mat-form-field>-->
-
         <mat-accordion *ngIf="todos; else todosError">
           <mat-expansion-panel #elem [id]="todo.category" *ngFor="let todo of this.filterTodos(todoOwner, todoCategory, todoBody, todoStatus)">
             <mat-expansion-panel-header>
@@ -39,10 +43,9 @@
             <mat-panel-description>The body is {{todo.body}}</mat-panel-description>
             <mat-panel-description>The status is {{todo.status}}.</mat-panel-description>
 
-
           </mat-expansion-panel>
         </mat-accordion>
-        <!-- Maybe this should be a pop-up instead of just a text message? Not sure. -->
+
         <ng-template #todosError>
           <mat-error>
             There was a problem loading the todos. Possibly the server is down or perhaps there are network

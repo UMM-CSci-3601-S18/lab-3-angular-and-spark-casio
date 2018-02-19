@@ -13,7 +13,7 @@
 }
 
 #todo-list-title {
-  font-size: 200px;
+  font-size: 100px;
   text-align: center;
   font-family: Heuristica;
   /*background-image: url(../../app/images/todos.png);
@@ -36,14 +36,18 @@ mat-form-field{
 }
 
 #todo-list-title[_ngcontent-c10] {
-  background-color: maroon;
+  background-color: whitesmoke;
   border-radius: 3px;
 }
 
 #todo-list-title[_ngcontent-c10][_ngcontent-c10] {
-  color: #ffb411;
+  color: #704f0a;
 }
 
 .mat-card:not([class*="mat-elevation-z"]) {
   background-color: #ffb411;
+}
+
+#info-card {
+  background-color: #fff1b0;
 }
