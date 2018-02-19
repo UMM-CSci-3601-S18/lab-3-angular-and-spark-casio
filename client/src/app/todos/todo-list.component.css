@@ -16,8 +16,6 @@
   font-size: 100px;
   text-align: center;
   font-family: Heuristica;
-  /*background-image: url(../../app/images/todos.png);
-  background-repeat: no-repeat;*/
   text-align: center;
 }
 
@@ -36,7 +34,7 @@ mat-form-field{
 }
 
 #todo-list-title[_ngcontent-c10] {
-  background-color: whitesmoke;
+  background-image: url("../images/bgtile.jpg");
   border-radius: 3px;
 }
 
@@ -49,5 +47,5 @@ mat-form-field{
 }
 
 #info-card {
-  background-color: #fff1b0;
+  background-image: url("../images/bgtile.jpg");
 }
