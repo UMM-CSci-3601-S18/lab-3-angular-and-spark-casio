@@ -31,11 +31,14 @@ mat-form-field{
 .mat-card-content > :last-child:not(.mat-card-footer), .mat-card > :last-child:not(.mat-card-footer) {
   text-align: center;
   background-color: #fff1b0;
+  border-radius: 25px;
+  border: solid black 1px;
 }
 
 #todo-list-title[_ngcontent-c10] {
   background-image: url("../images/bgtile.jpg");
-  border-radius: 3px;
+  border-radius: 25px;
+  border: solid black 1px;
 }
 
 #todo-list-title[_ngcontent-c10][_ngcontent-c10] {
@@ -43,9 +46,16 @@ mat-form-field{
 }
 
 .mat-card:not([class*="mat-elevation-z"]) {
-  background-color: #ffb411;
+  background: transparent;
+  border-radius: 25px;
 }
 
 #info-card {
   background-image: url("../images/bgtile.jpg");
+  border-radius: 25px;
+  border: solid black 1px;
+}
+
+[layout-gt-sm="row"] {
+  background-image: url("../images/redtile.jpg");
 }
